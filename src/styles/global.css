@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sob-green: #008B3E;
+    --sob-orange: #FF6E00;
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  html, body {
+    @apply antialiased text-gray-800 bg-gray-50;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .shadow-glow {
+    box-shadow: 0 4px 14px 0 rgba(0, 139, 62, 0.39);
+  }
+}

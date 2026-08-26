@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/hero.jpg';
+import { siteConfig } from '../../config/site';
+
+const waUrl = `https://wa.me/${siteConfig.whatsapp}?text=Halo%20SOB,%20saya%20mau%20order%20hari%20ini`;
+---
+
+<section class="relative overflow-hidden bg-slate-50 pt-24 sm:pt-32 pb-12 sm:pb-16 lg:pb-24">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16">
+      <!-- CONTENT -->
+      <div class="text-center lg:text-left">
+        <div class="inline-flex max-w-full items-center gap-2 rounded-full border border-green-200 bg-green-100/80 px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold text-sob-green">
+          <span class="relative flex h-2.5 w-2.5 shrink-0">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sob-green opacity-60"></span>
+            <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-sob-green"></span>
+          </span>
+          <span class="truncate">Melayani Area Bantul & Yogyakarta</span>
+        </div>
+
+        <h1 class="mt-5 sm:mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+          Belanja Kebutuhan Dapur
+          <span class="block bg-gradient-to-r from-sob-orange to-red-500 bg-clip-text text-transparent pb-2">Praktis & Segar</span>
+        </h1>
+
+        <p class="mx-auto lg:mx-0 mt-5 sm:mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-gray-600">
+          Pelopor belanja sayur online di Bantul. Sayuran segar, lauk pauk, buah, hingga bumbu dapur kami antar sampai depan pintu Anda.
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-7 sm:mt-10 grid grid-cols-1 sm:flex sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-sob-green px-6 sm:px-8 py-3.5 text-base sm:text-lg font-bold text-white shadow-glow transition hover:bg-green-700 hover:-translate-y-0.5 active:scale-[.98]">
+            <i class="fab fa-whatsapp text-xl"></i> Pesan via WhatsApp
+          </a>
+          <a href="#promo-form" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border-2 border-sob-orange bg-white px-6 sm:px-8 py-3.5 text-base sm:text-lg font-bold text-sob-orange transition hover:bg-orange-50 hover:-translate-y-0.5 active:scale-[.98]">
+            <i class="fas fa-ticket-alt"></i> Klaim Promo 10%
+          </a>
+        </div>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="relative mx-auto w-full max-w-lg lg:max-w-none">
+        <div class="absolute inset-4 rounded-[2rem] bg-green-300/30 blur-3xl" aria-hidden="true"></div>
+        <Image 
+          src={heroImage} 
+          alt="Sayuran segar Sayur Online Bantul" 
+          width={900} 
+          height={600} 
+          loading="eager" 
+          fetchpriority="high"
+          class="relative z-10 aspect-[4/3] w-full rounded-3xl border-4 sm:border-8 border-white object-cover shadow-2xl lg:-rotate-2 transition-transform duration-500 lg:hover:rotate-0" 
+        />
+        
+        <!-- Rating Badge -->
+        <div class="absolute -bottom-4 left-4 sm:left-6 lg:-left-8 z-20 flex items-center gap-3 rounded-2xl border border-gray-100 bg-white p-3 sm:p-4 shadow-xl">
+          <div class="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-yellow-100 text-yellow-500">
+            <i class="fas fa-star text-lg sm:text-2xl"></i>
+          </div>
+          <div>
+            <p class="text-lg sm:text-2xl font-black leading-none text-gray-900">4.9/5</p>
+            <p class="mt-1 text-[10px] sm:text-xs font-medium text-gray-500">Ulasan Pelanggan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import { siteConfig } from '../../config/site';
+import logoImage from '../../assets/images/logo.jpg';
+
+const waUrl = `https://wa.me/${siteConfig.whatsapp}?text=Halo%20SOB,%20saya%20mau%20pesan%20belanjaan`;
+---
+
+<nav id="navbar" class="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-shadow duration-300">
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 sm:h-20 items-center justify-between gap-3">
+      <!-- Brand -->
+      <a href="/" class="flex min-w-0 items-center gap-2 sm:gap-3" aria-label="Sayur Online Bantul - Beranda">
+        <Image 
+          src={logoImage} 
+          alt="Logo Sayur Online Bantul" 
+          width={48} 
+          height={48} 
+          class="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-full border-2 border-gray-100" 
+          loading="eager" 
+        />
+        <div class="min-w-0">
+          <!-- Desktop Name -->
+          <p class="hidden sm:block truncate text-base lg:text-lg font-bold leading-tight text-sob-green">Sayur Online Bantul</p>
+          <!-- Mobile Name -->
+          <p class="block sm:hidden text-base font-extrabold text-sob-green">SOB</p>
+          <p class="hidden sm:block text-[10px] sm:text-xs font-medium tracking-wide text-gray-500">EST. 1983</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-6 lg:gap-8">
+        <a href="/#kategori" class="text-sm lg:text-base font-semibold text-gray-600 hover:text-sob-green transition">Kategori</a>
+        <a href="/#testimoni" class="text-sm lg:text-base font-semibold text-gray-600 hover:text-sob-green transition">Ulasan</a>
+        <a href="/promo" class="text-sm lg:text-base font-semibold text-sob-orange hover:text-orange-600 transition">Promo</a>
+      </div>
+
+      <!-- CTA Navbar -->
+      <a href={waUrl} target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-sob-green px-4 sm:px-6 py-2.5 text-sm sm:text-base font-bold text-white shadow-md shadow-green-600/20 transition hover:bg-green-700 active:scale-95" aria-label="Pesan melalui WhatsApp">
+        <i class="fab fa-whatsapp text-lg"></i>
+        <span class="hidden sm:inline">Pesan Sekarang</span>
+        <span class="sm:hidden">Pesan</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Navbar shadow on scroll (T025)
+  let ticking = false;
+  const navbar = document.getElementById('navbar');
+
+  function updateNavbar() {
+    if (navbar) {
+      if (window.scrollY > 10) {
+        navbar.classList.add('shadow-soft');
+      } else {
+        navbar.classList.remove('shadow-soft');
+      }
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Trigger initial state
+  updateNavbar();
+</script>

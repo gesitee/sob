@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Responsive viewport & Safe Area Support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#008B3E" />
+    
+    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- TODO: Add Google Search Console verification meta tag here -->
+    <!-- <meta name="google-site-verification" content="your-verification-code-here" /> -->
+
+    <!-- Font Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+    
+    <!-- Slot for SEO elements (handled by SEO.astro and JsonLd.astro) -->
+    <slot name="seo" />
+    <!-- TODO: GSC Verification Meta Tag -->
+    
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

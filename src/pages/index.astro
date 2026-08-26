@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SEO from '../components/seo/SEO.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhatsAppFloatingButton from '../components/layout/WhatsAppFloatingButton.astro';
+
+import Hero from '../components/sections/Hero.astro';
+import SocialProofStrip from '../components/sections/SocialProofStrip.astro';
+import CategoryGrid from '../components/sections/CategoryGrid.astro';
+
+import PromoLeadForm from '../components/sections/PromoLeadForm.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import LocationMap from '../components/sections/LocationMap.astro';
+---
+
+<BaseLayout>
+  <Fragment slot="seo">
+    <SEO />
+    <JsonLd />
+  </Fragment>
+
+  <Navbar />
+  
+  <main>
+    <Hero />
+    <SocialProofStrip />
+    <CategoryGrid />
+
+    <PromoLeadForm />
+    <Testimonials />
+    <LocationMap />
+  </main>
+
+  <Footer />
+  <WhatsAppFloatingButton />
+</BaseLayout>

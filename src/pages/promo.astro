@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SEO from '../components/seo/SEO.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhatsAppFloatingButton from '../components/layout/WhatsAppFloatingButton.astro';
+import PromoLeadForm from '../components/sections/PromoLeadForm.astro';
+---
+
+<BaseLayout>
+  <Fragment slot="seo">
+    <SEO title="Klaim Promo 10% Sayur Online Bantul" description="Dapatkan voucher diskon 10% untuk pesanan perdana sayur, buah, dan sembako di Sayur Online Bantul. Daftarkan WhatsApp Anda sekarang!" />
+    <JsonLd title="Promo Sayur Online Bantul" description="Promo diskon belanja sayur di Bantul." />
+  </Fragment>
+
+  <Navbar />
+  
+  <main class="pt-24 sm:pt-32 pb-8 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 text-center mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Voucher Promo Eksklusif</h1>
+      <p class="mt-4 text-gray-600">Khusus untuk pelanggan baru Sayur Online Bantul (SOB)</p>
+    </div>
+    
+    <PromoLeadForm />
+  </main>
+
+  <Footer />
+  <WhatsAppFloatingButton />
+</BaseLayout>
