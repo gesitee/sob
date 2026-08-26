@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://sayuronlinebantul.com',
+  site: 'https://sayuronline.vercel.app',
   integrations: [
     tailwind(),
     sitemap()
